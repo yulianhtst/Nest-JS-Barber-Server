@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common/decorators';
+import { CreateBookingDto } from './dto/createBookingDto';
 
 @Injectable()
 export class BookingService {
-  createBooking(): any {
-    return 'Success';
+  createBooking(createBookingDto: CreateBookingDto): any {
+    return createBookingDto;
   }
 }
