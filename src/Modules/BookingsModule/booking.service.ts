@@ -6,4 +6,7 @@ export class BookingService {
   createBooking(createBookingDto: CreateBookingDto): any {
     return createBookingDto;
   }
+  getAllBookings(): any {
+    return 'ALL Bookings';
+  }
 }
