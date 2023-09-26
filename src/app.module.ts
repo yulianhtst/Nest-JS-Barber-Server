@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BookingModule } from './Modules/BookingsModule/booking.module';
+import { MongooseModule } from '@nestjs/mongoose';
 
 //ТODO
 //1.1 createBooking
@@ -10,7 +11,10 @@ import { BookingModule } from './Modules/BookingsModule/booking.module';
 //2.2 patchWorkingWeek
 
 @Module({
-  imports: [BookingModule],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost:27017/barbershop'),
+    BookingModule,
+  ],
   controllers: [],
   providers: [],
 })
