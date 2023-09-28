@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Get } from '@nestjs/common';
+import { Body, Req, Controller, Post, Get } from '@nestjs/common';
 import { BookingService } from './booking.service';
 import { CreateBookingDto } from './dto/createBookingDto';
 
@@ -7,12 +7,12 @@ export class BookingController {
   constructor(private bookingService: BookingService) {}
 
   @Get()
-  getAllBookings() {
-    return this.bookingService.getAllBookings();
+  async getAllBookings() {
+    return await this.bookingService.getAllBookings();
   }
 
   @Post()
-  createBooking(@Body() createBookingDto: CreateBookingDto) {
-    return this.bookingService.createBooking(createBookingDto);
+  async createBooking(@Body() dto: CreateBookingDto) {
+    return await this.bookingService.createBooking(dto);
   }
 }
