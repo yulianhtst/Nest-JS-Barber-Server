@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BookingModule } from './Modules/BookingsModule/booking.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { DateGateway } from './gateways/date.gateway';
 
 //ТODO
 //1.1 createBooking
@@ -17,6 +16,6 @@ import { DateGateway } from './gateways/date.gateway';
     BookingModule,
   ],
   controllers: [],
-  providers: [DateGateway],
+  providers: [],
 })
 export class AppModule {}
