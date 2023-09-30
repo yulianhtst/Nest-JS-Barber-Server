@@ -1,13 +1,8 @@
-import {
-  IsNotEmpty,
-  IsDateString,
-  IsEmail,
-  IsOptional,
-  Validate,
-} from 'class-validator';
+import { IsNotEmpty, IsDateString, Validate } from 'class-validator';
 import { isDateExisting } from '../Validation/isDateExisting';
 
 export class DateDto {
+  @IsDateString()
   @IsNotEmpty()
   @Validate(isDateExisting)
   date: string;

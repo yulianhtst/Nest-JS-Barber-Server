@@ -5,6 +5,7 @@ import { BookingModule } from './Modules/BookingsModule/booking.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { DatesModule } from './Modules/DateModule/dates.module';
 import { isDateExisting } from './Modules/DateModule/Validation/isDateExisting';
+import { BarberModule } from './Modules/BarberModule/barber.module';
 
 //ТODO
 //1.1 createBooking
@@ -17,6 +18,7 @@ import { isDateExisting } from './Modules/DateModule/Validation/isDateExisting';
     MongooseModule.forRoot('mongodb://localhost:27017/barbershop'),
     BookingModule,
     DatesModule,
+    BarberModule,
   ],
   controllers: [],
   providers: [],

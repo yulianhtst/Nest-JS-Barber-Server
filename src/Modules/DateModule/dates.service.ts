@@ -10,7 +10,17 @@ export class DatesService {
   //Db connection etc
 
   async getDates() {
-    return 'server';
+    const arrayOfDates = [];
+
+    for (let i = 0; i < 10; i++) {
+      const day = new Date();
+
+      let result = new Date(day.setDate(day.getDate() + i));
+
+      arrayOfDates.push(result);
+    }
+
+    return arrayOfDates;
   }
   async postDates(dateObj: DateDto) {
     const date = new this.datesModel(dateObj);
