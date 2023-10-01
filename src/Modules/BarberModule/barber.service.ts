@@ -11,4 +11,7 @@ export class BarberService {
     const barber = new this.barberModel(barberInfo);
     return barber.save();
   }
+  getAllBarbers() {
+    return this.barberModel.find({}).exec();
+  }
 }
