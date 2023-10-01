@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { BarberService } from './barber.service';
+import { Barber } from './schema/barber.schema';
 
 @Controller('barbers')
 export class BarberController {
@@ -12,5 +13,9 @@ export class BarberController {
   @Get()
   async getAllBarbers() {
     return await this.barberService.getAllBarbers();
+  }
+  @Get(':id')
+  async getBarberById(@Param() params: any): Promise<Barber> {
+    return await this.barberService.getBarberById(params.id);
   }
 }

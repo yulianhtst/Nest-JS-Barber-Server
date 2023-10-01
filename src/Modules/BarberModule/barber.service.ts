@@ -11,7 +11,23 @@ export class BarberService {
     const barber = new this.barberModel(barberInfo);
     return barber.save();
   }
-  getAllBarbers() {
+
+  async getAllBarbers() {
+    // const barbers = await this.barberModel.aggregate([
+    //   {
+    //     $lookup: {
+    //       from: 'bookings',
+    //       localField: '_id',
+    //       foreignField: 'barbers',
+    //       as: 'bookings',
+    //     },
+    //   },
+    // ]);
+    // return barbers;
     return this.barberModel.find({}).exec();
+  }
+
+  getBarberById(id) {
+    return this.barberModel.findById(id).populate('bookings');
   }
 }

@@ -1,27 +1,22 @@
-import { IsNotEmpty, IsDateString, IsEmail, IsOptional } from 'class-validator';
+import { IsNotEmpty, IsDateString, IsEmail, IsOptional, IsMongoId } from 'class-validator';
 
 export class CreateBookingDto {
   @IsNotEmpty()
-  name: string;
+  readonly name: string;
 
   @IsNotEmpty()
   @IsEmail()
-  email: string;
+  readonly email: string;
 
   @IsNotEmpty()
-  number: string;
+  readonly number: string;
 
   @IsOptional()
-  services: string;
-
-  @IsOptional()
-  booked: boolean;
-
-  @IsOptional()
-  dayOff: boolean;
+  readonly services: string;
 
   @IsDateString()
-  date: Date;
-  @IsOptional()
-  barberId: any;
+ readonly  date: Date;
+  
+  @IsMongoId()
+  readonly barber: string;
 }
