@@ -33,4 +33,8 @@ export class DatesService {
 
     return date.save();
   }
+
+  async deleteDate(id) {
+    return this.datesModel.findByIdAndDelete(id);
+  }
 }

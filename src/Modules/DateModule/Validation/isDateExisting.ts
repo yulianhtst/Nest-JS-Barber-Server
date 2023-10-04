@@ -16,14 +16,9 @@ export class isDateExisting implements ValidatorConstraintInterface {
     value: any,
     validationArguments?: ValidationArguments,
   ): Promise<boolean> {
-    //Value e datata
-
-    console.log(value, 'value');
-
     const foundDate = await this.datesModel.findOne({
       date: value.slice(0, 10),
     });
-    console.log(foundDate, 'found date');
 
     if (foundDate) {
       return false;
