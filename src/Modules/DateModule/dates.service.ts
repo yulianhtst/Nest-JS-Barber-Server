@@ -9,7 +9,7 @@ export class DatesService {
   constructor(@InjectModel(Dates.name) private datesModel: Model<Dates>) {}
   //Db connection etc
 
-  async getDates() {
+  generateDates() {
     const arrayOfDates = [];
 
     for (let i = 0; i < 10; i++) {
@@ -22,6 +22,10 @@ export class DatesService {
 
     return arrayOfDates;
   }
+  async getAllDates() {
+    return this.datesModel.find({}).exec();
+  }
+
   async postDates(dateObj: DateDto) {
     const date = new this.datesModel(dateObj);
 
