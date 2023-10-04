@@ -6,7 +6,6 @@ export type DatesDocument = HydratedDocument<Dates>;
 @Schema()
 export class Dates {
   @Prop()
-  date: Date;
-
+  date: string;
 }
 export const DatesSchema = SchemaFactory.createForClass(Dates);

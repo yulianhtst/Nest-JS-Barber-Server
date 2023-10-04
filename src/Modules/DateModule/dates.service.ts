@@ -27,7 +27,9 @@ export class DatesService {
   }
 
   async postDates(dateObj: DateDto) {
-    const date = new this.datesModel(dateObj);
+    const dateForSave = { date: dateObj.date.slice(0, 10) };
+
+    const date = new this.datesModel(dateForSave);
 
     return date.save();
   }

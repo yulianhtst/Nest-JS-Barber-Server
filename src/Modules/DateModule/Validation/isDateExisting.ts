@@ -18,8 +18,12 @@ export class isDateExisting implements ValidatorConstraintInterface {
   ): Promise<boolean> {
     //Value e datata
 
-    const foundDate = await this.datesModel.findOne({ date: value });
-    console.log(foundDate);
+    console.log(value, 'value');
+
+    const foundDate = await this.datesModel.findOne({
+      date: value.slice(0, 10),
+    });
+    console.log(foundDate, 'found date');
 
     if (foundDate) {
       return false;
@@ -29,7 +33,7 @@ export class isDateExisting implements ValidatorConstraintInterface {
 
     // throw new Error('Method not implemented.');
   }
-    // defaultMessage?(validationArguments?: ValidationArguments): string {
-    //   throw new Error('Method not implemented.');
-    // }
+  // defaultMessage?(validationArguments?: ValidationArguments): string {
+  //   throw new Error('Method not implemented.');
+  // }
 }
