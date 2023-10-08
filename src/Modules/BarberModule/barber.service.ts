@@ -7,27 +7,16 @@ import { InjectModel } from '@nestjs/mongoose';
 export class BarberService {
   constructor(@InjectModel(Barber.name) private barberModel: Model<Barber>) {}
 
-  createBarber(barberInfo) {
+  async createBarber(barberInfo) {
     const barber = new this.barberModel(barberInfo);
-    return barber.save();
+    return await barber.save();
   }
 
   async getAllBarbers() {
-    // const barbers = await this.barberModel.aggregate([
-    //   {
-    //     $lookup: {
-    //       from: 'bookings',
-    //       localField: '_id',
-    //       foreignField: 'barbers',
-    //       as: 'bookings',
-    //     },
-    //   },
-    // ]);
-    // return barbers;
     return this.barberModel.find({}).exec();
   }
 
-  getBarberById(id) {
-    return this.barberModel.findById(id).populate('bookings');
+  async getBarberById(id: string): Promise<any> {
+    return await this.barberModel.findById(id).populate('bookings');
   }
 }

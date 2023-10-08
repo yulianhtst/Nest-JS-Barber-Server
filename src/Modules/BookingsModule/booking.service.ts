@@ -15,7 +15,7 @@ export class BookingService {
   async getAllBookings(): Promise<Booking[]> {
     return this.bookingModel.find({}).exec();
   }
-  async createBooking(dto: CreateBookingDto) {
+  async createBooking(dto: CreateBookingDto): Promise<any> {
     const newBooking = new this.bookingModel(dto);
     const savedBooking = await newBooking.save();
 

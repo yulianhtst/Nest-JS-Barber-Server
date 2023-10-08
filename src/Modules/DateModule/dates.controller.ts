@@ -9,7 +9,7 @@ export class DatesController {
   generateDates() {
     return this.datesService.generateDates();
   }
-  @Get('1')
+  @Get('savedDates')
   async getAllDates() {
     return await this.datesService.getAllDates();
   }
